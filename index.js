@@ -40,7 +40,7 @@ inquirer.prompt([
             "Update employee's manager",
             "Remove a role from database",
             "Remove employee from database",
-            "Exit"]
+            "Exit"
+        ]
 },
 ])
-}
