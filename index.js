@@ -23,6 +23,7 @@ const db = mysql.createConnection(
   console.log(`Connected to the employee_db database.`)
 );
 
+console.table("\n------------ EMPLOYEE TRACKER ------------\n")
 
 inquirer.prompt([
 {
@@ -44,3 +45,4 @@ inquirer.prompt([
         ]
 },
 ])
+
