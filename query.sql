@@ -1,5 +1,3 @@
-SELECT employees.employee_name AS 
-FROM 
-LEFT JOIN 
-ON 
-ORDER BY 
+USE employee_db;
+INSERT emoloyee_db.department VALUES ("test");
+
