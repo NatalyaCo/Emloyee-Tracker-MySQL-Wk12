@@ -7,15 +7,14 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Express middleware
-app.use(express.urlencoded({
-    extended: false
-}));
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // Connect to database
-const db = mysql.createConnection({
+const db = mysql.createConnection(
+{
  host: 'localhost',
-port: "3001",
+
         // MySQL username,
 user: 'root',
         // TODO: Add MySQL password here
@@ -27,8 +26,10 @@ console.log(`Connected to the employee_db database.`)
 
 console.table("\n------------ EMPLOYEE TRACKER ------------\n")
 
-const askQuestion = async function () {
-const answer = await inquirer.prompt([{
+function initiate() {
+
+    inquirer.prompt({
+
     type: "list",
     message: "What would you like to do?",
     name: "mainMenu",
@@ -44,70 +45,39 @@ const answer = await inquirer.prompt([{
             "Remove a role from database",
             "Remove employee from database",
             "Exit"
-        ],
-        name: "choice"
-    }])
+        ]
+        
+    })
 
-switch (answer.choice) {
-case "View list of departments": {
-        
-const departments = await viewDepartments();
-console.table(departments);
-askQuestion();
- break;
-}
-case "View employee roles": {
-        
-const roles = await viewRoles();
-console.table(roles);
-askQuestion();
+.then (function ({task}) {
+switch (task) {
+case "View Employees":
+viewEmployee();
 break;
-}
-case "View list of employees": {
-const employees = await viewEmployees();
-console.table(employees);
-askQuestion();
+
+case "View Employees by Department":
+viewEmployeeByDepartment();
 break;
-}
-case "Add a department": {
-await askDepartment();
-askQuestion();
+      
+case "Add Employee":
+addEmployee();
 break;
-}
-case "Add a role": {
-        
-await askRole();
-askQuestion();
+
+case "Remove Employees":
+removeEmployees();
 break;
-}
-case "Add an employee": {
-        
-await askEmployee();
-askQuestion();
+
+case "Update Employee Role":
+updateEmployeeRole();
 break;
-}
-case "Update an employee role": {
-await updateRole();
-askQuestion();
+
+case "Add Role":
+addRole();
 break;
-}
-case "Update an employee's manager": {
-await updateManager();
-askQuestion();
-break;
-}
-case "View employees by department": {
-const employees = await viewByDepartment();
-console.table(employees);
-askQuestion();
-break;
-}
-default: {
+
+case "End":
 connection.end();
-process.exit();
+break;
+} 
+})
 }
-}
-
-}
-askQuestion();
-

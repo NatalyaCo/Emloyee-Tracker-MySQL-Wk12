@@ -8,7 +8,7 @@ VALUES  ("Shoes"),
         ("Formal"),
       
     
-INSERT INTO employee_role (title, salary, department_id)
+INSERT INTO roles (id, title, salary, department_id)
 VALUES  ("Sales", 65000, 3),
         ("Cashier", 55000, 3),
         ("Cleaner", 45000, 3),
