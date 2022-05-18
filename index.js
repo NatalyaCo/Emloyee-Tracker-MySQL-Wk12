@@ -2,6 +2,7 @@ const express = require('express');
 // Import and require mysql2
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
+require("console.table");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -51,6 +52,7 @@ function initiate() {
 
 .then (function ({task}) {
 switch (task) {
+
 case "View Employees":
 viewEmployee();
 break;
@@ -81,3 +83,15 @@ break;
 } 
 })
 }
+
+//view empl
+//view empl by dept
+//dept choice
+//add empl
+//role choice
+//remove employee
+
+//update employee choice
+//update role (has id, title, salary) value: id, title: `${title}`, salary: `${salary}
+//add role
+//DELETE FROM employee WHERE for bonus?
