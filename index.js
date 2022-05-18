@@ -14,28 +14,28 @@ app.use(express.json());
 
 // Connect to database
 const db = mysql.createConnection({
-        host: 'localhost',
-        port: "3001",
+ host: 'localhost',
+port: "3001",
         // MySQL username,
-        user: 'root',
+user: 'root',
         // TODO: Add MySQL password here
-        password: '',
-        database: 'employee_db'
-    },
-    console.log(`Connected to the employee_db database.`)
+password: 'Niko_Kotik5',
+database: 'employee_db'
+},
+console.log(`Connected to the employee_db database.`)
 );
 
 console.table("\n------------ EMPLOYEE TRACKER ------------\n")
 
 const askQuestion = async function () {
-    const answer = await inquirer.prompt([{
-        type: "list",
-        message: "What would you like to do?",
-        name: "mainMenu",
-        choices: [
-            "View list of departments",
-            "View employee roles",
-            "View list of employees",
+const answer = await inquirer.prompt([{
+    type: "list",
+    message: "What would you like to do?",
+    name: "mainMenu",
+    choices: [
+    "View list of departments",
+    "View employee roles",
+    "View list of employees",
             "Add a department",
             "Add a role",
             "Add an employee",
@@ -48,68 +48,65 @@ const askQuestion = async function () {
         name: "choice"
     }])
 
-    switch (answer.choice) {
-        case "View list of departments": {
+switch (answer.choice) {
+case "View list of departments": {
         
-            const departments = await viewDepartments();
-            console.table(departments);
-            askQuestion();
-            break;
-        }
-        case "View employee roles": {
+const departments = await viewDepartments();
+console.table(departments);
+askQuestion();
+ break;
+}
+case "View employee roles": {
         
-            const roles = await viewRoles();
-            console.table(roles);
-            askQuestion();
-            break;
-        }
-        case "View list of employees": {
+const roles = await viewRoles();
+console.table(roles);
+askQuestion();
+break;
+}
+case "View list of employees": {
+const employees = await viewEmployees();
+console.table(employees);
+askQuestion();
+break;
+}
+case "Add a department": {
+await askDepartment();
+askQuestion();
+break;
+}
+case "Add a role": {
         
-            const employees = await viewEmployees();
-            console.table(employees);
-            askQuestion();
-            break;
-        }
-        case "Add a department": {
+await askRole();
+askQuestion();
+break;
+}
+case "Add an employee": {
         
-            await askDepartment();
-            askQuestion();
-            break;
-        }
-        case "Add a role": {
-        
-            await askRole();
-            askQuestion();
-            break;
-        }
-        case "Add an employee": {
-        
-            await askEmployee();
-            askQuestion();
-            break;
-        }
-        case "Update an employee role": {
-         (bonus)
-            await updateRole();
-            askQuestion();
-            break;
-        }
-        case "Update an employee's manager": {
-            await updateManager();
-            askQuestion();
-            break;
-        }
-        case "View employees by department": {
-            const employees = await viewByDepartment();
-            console.table(employees);
-            askQuestion();
-            break;
-        }
-        default: {
-            connection.end();
-            process.exit();
-        }
-    }
+await askEmployee();
+askQuestion();
+break;
+}
+case "Update an employee role": {
+await updateRole();
+askQuestion();
+break;
+}
+case "Update an employee's manager": {
+await updateManager();
+askQuestion();
+break;
+}
+case "View employees by department": {
+const employees = await viewByDepartment();
+console.table(employees);
+askQuestion();
+break;
+}
+default: {
+connection.end();
+process.exit();
+}
+}
 
 }
 askQuestion();
