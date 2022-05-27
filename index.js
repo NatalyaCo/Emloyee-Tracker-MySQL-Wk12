@@ -90,7 +90,7 @@ case "Exit":
 connection.end();
 break;
 }
-})
+});
 }
 
 
