@@ -1,6 +1,5 @@
-const express = require('express');
+
 require("dotenv").config();
-// Import and require mysql2
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const consoleTable = require('console.table');
@@ -192,5 +191,31 @@ initialAction();
 initialAction();
 };
 }
+
+const departmentAdd = async () => {
+try {
+console.log('Department Add');
+
+let answer = await inquirer.prompt([
+    {
+    name: 'deptName',
+    type: 'input',
+    message: 'Enter department name'
+    }
+]);
+
+let result = await connection.query("INSERT INTO department SET ?", {department_name: answer.deptName
+    });
+
+console.log(`${answer.deptName} added successfully to departments.\n`)
+initialAction();
+
+} catch (err) {
+console.log(err);
+initialAction();
+
+};
+}
+
 
 
