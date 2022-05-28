@@ -192,9 +192,9 @@ initialAction();
 };
 }
 
-const departmentAdd = async () => {
+const addDepartment = async () => {
 try {
-console.log('Department Add');
+console.log('Department Added successfully');
 
 let answer = await inquirer.prompt([
     {
