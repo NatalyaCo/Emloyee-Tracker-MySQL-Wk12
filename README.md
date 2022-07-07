@@ -25,5 +25,5 @@ In order to test open the console and run the following:
 If you have any questions contact me on [GitHub](https://github.com/natalyaCo) or contact 
 Natalya C at natalya.C2022@yahoo.com  
 
-For a detailed walk through of this app, please view the video below:
+For a detailed walk through of this app, please view this video:
 https://drive.google.com/uc?id=1ib0nXtU99f_qmxlDUPs2tl-VaT_iUCRV&export=download
