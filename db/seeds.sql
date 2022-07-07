@@ -8,7 +8,7 @@ VALUES  ("Shoes"),
         ("Formal");
       
     
-INSERT INTO role (title, salary, department_id)
+INSERT INTO roles (title, salary, department_id)
 VALUES  ("Sales", 65000, 3),
         ("Cashier", 55000, 3),
         ("Cleaner", 45000, 3),
@@ -21,7 +21,7 @@ VALUES  ("Sales", 65000, 3),
         ("Perfume", 660000, 4),
         ("Seamstress", 370000, 5);
 
-INSERT INTO employee (first_name, last_name, role_id)
+INSERT INTO employee (first_name, last_name, roles_id)
 VALUES  ('Natalya', "C", 1),
         ('Nancy', "Reagan", 2),
         ("Barbabra", "Bush", 3),
@@ -41,6 +41,6 @@ VALUES  ('Natalya', "C", 1),
 -- VALUES ("Engineering");
 -- INSERT INTO department (name)
 -- VALUES ("Finance");
--- INSERT INTO department (name)
+-- INSERT INTO department (name)my
 -- VALUES ("Legal");
-      
+    
