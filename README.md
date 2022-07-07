@@ -27,3 +27,6 @@ Natalya C at natalya.C2022@yahoo.com
 
 For a detailed walk through of this app, please view this video:
 https://drive.google.com/uc?id=1ib0nXtU99f_qmxlDUPs2tl-VaT_iUCRV&export=download
+
+![Screenshot (283)](https://user-images.githubusercontent.com/99770212/177858434-e44a1372-8f6d-496e-b976-64ab921fa634.png)
+
