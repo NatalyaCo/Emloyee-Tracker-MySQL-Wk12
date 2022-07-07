@@ -209,7 +209,7 @@ const addDepartment = async () => {
 
         let result = await connection.query("INSERT INTO department SET ?", 
         {
-            dept_name: answer.deptName
+            dept_Name: answer.deptName
         });
 
         console.log(`${answer.deptName} added successfully to departments.\n`)
